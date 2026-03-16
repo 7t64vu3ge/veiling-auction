@@ -1,10 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from "react";
-import PocketBase from "pocketbase";
 import './Navbar.css'
-
-const pb = new PocketBase("https://pocketbase-render-ycpw.onrender.com");
+import pb from '../lib/pb';
 
 const ManageAssets = () => {
   const [items, setItems] = useState([]);
@@ -86,7 +84,7 @@ const ManageAssets = () => {
           <div key={item.id} className="manage-card">
             <img
               className="manage-image"
-              src={`https://pocketbase-render-ycpw.onrender.com/api/files/items/${item.id}/${item.field}`}
+              src={`${import.meta.env.VITE_PB_URL}/api/files/items/${item.id}/${item.field}`}
               alt={item.item}
             />
             <div className="le-info">

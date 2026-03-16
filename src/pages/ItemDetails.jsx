@@ -1,9 +1,7 @@
 import { useState } from 'react';
-import PocketBase from 'pocketbase';
 import LoginRegi from '../components/LoginRegi';
 import "./ItemDetails.css"
-
-const pb = new PocketBase("https://pocketbase-render-ycpw.onrender.com");
+import pb from '../lib/pb';
 
 export default function ItemDetails({ item, onBack }) {
     const loggedInUsername = localStorage.getItem('loggedInUsername');
@@ -39,7 +37,7 @@ export default function ItemDetails({ item, onBack }) {
             <div className='item-container'>
                 <img
                     className='product-image'
-                    src={`https://pocketbase-render-ycpw.onrender.com/api/files/items/${item.id}/${item.field}`}
+                    src={`${import.meta.env.VITE_PB_URL}/api/files/items/${item.id}/${item.field}`}
                     alt={item.item}
                 />
                 <div>

@@ -1,10 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import PocketBase from "pocketbase";
 import "./Upload.css";
 import { useNavigate } from "react-router-dom";
-
-const pb = new PocketBase("https://pocketbase-render-ycpw.onrender.com");
+import pb from '../lib/pb';
 
 const categoriesOptions = [
   "Accessories",

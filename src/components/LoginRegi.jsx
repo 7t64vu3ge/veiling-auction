@@ -1,10 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from "react";
 import "./Navbar.css";
-import PocketBase from "pocketbase";
 import { Link } from "react-router-dom";
-
-const pb = new PocketBase("https://pocketbase-render-ycpw.onrender.com");
+import pb from '../lib/pb';
 
 const LoginRegi = () => {
   const [users, setUsers] = useState([]);

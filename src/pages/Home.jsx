@@ -2,10 +2,8 @@
 import { useEffect, useState } from 'react'
 import './Home.css'
 import Categories from '../components/Categories'
-import PocketBase from 'pocketbase'
 import ItemDetails from './ItemDetails'
-
-const pb = new PocketBase("https://pocketbase-render-ycpw.onrender.com");
+import pb from '../lib/pb'
 
 export default function Home() {
     const [category, setCategory] = useState("");
@@ -125,7 +123,7 @@ export default function Home() {
                                 >
                                     <p>{item.uploaded_by}</p>
                                     <img
-                                        src={`https://pocketbase-render-ycpw.onrender.com/api/files/items/${item.id}/${item.field}`}
+                                        src={`${import.meta.env.VITE_PB_URL}/api/files/items/${item.id}/${item.field}`}
                                         alt={item.item}
                                         className="grid-item-image"
                                     />
